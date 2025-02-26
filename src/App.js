@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Login from "./pages/Login.js";  // 导入 Login 页面
+import Home from "./pages/Home.js";    // 导入 Home 页面
+import Register from "./pages/Register.js";  // 导入 Register 页面
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>   {/* 使用 BrowserRouter 包裹整个应用 */}
+      <Routes>
+        <Route path="/" element={<Login />} />    {/* 登录页面 */}
+
+        <Route path="/register" element={<Register />} />
+        <Route path="/home" element={<Home />} />  {/* 主页 */}
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
