@@ -1,0 +1,43 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+  padding: 8px 0;
+}
+
+.footer-item {
+  display: flex;
+  flex-direction: column;  /* 确保图标在上，文字在下 */
+  align-items: center;     /* 水平居中对齐 */
+  justify-content: center; /* 垂直居中对齐 */
+  cursor: pointer;
+  flex: 1;                /* 平均分配空间 */
+  height: 100%;
+}
+
+.footer-icon {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 4px;     /* 图标和文字之间的间距 */
+}
+
+.footer-text {
+  font-size: 12px;
+  color: #666;
+  margin-top: 2px;
+}
+
+.footer-item.active {
+  color: #1890ff;
+}
+
+.footer-item.active .footer-text {
+  color: #1890ff;
+} 

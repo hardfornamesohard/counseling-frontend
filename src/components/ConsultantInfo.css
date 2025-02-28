@@ -1,0 +1,58 @@
+.consultant-card {
+  margin-bottom: 16px;
+  border-radius: 8px;
+}
+
+.consultant-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.consultant-basic {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.consultant-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.consultant-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.consultant-name {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.consultant-description {
+  margin: 4px 0 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.session-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.chat-container {
+  background: #f5f5f5;
+  border-radius: 8px;
+  min-height: 400px;
+  padding: 16px;
+}
+
+.chat-placeholder {
+  text-align: center;
+  color: #999;
+  padding: 40px 0;
+} 
