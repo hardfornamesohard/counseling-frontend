@@ -54,3 +54,18 @@ export const logout = (sessionId) => {
     }
   });
 };
+
+export const getUserInfo = (sessionId) => {
+  return fetch(`${HOST}//user-info/find?session=${sessionId}`, {
+    method: 'GET',
+    
+  });
+};
+
+export const saveUserInfo = (formData, sessionId) => {
+  return fetch(`${HOST}/user-info/saveOrUpdate?session=${sessionId}`, {
+    method: 'POST',
+    body: formData,
+    // 不要手动设置 Content-Type，让浏览器自动处理
+  });
+};
