@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import Register from './pages/Register';
 import Session from './pages/Session';
 import Profile from './pages/Profile';
+import ManageCenter from './pages/Admin';
 
 const { Content } = Layout;
 
@@ -28,7 +29,7 @@ const App = () => {
                     <Route path="/home" element={<Home />} />
                     <Route path="/session" element={<Session />} />
                     <Route path="/test" element={<div>心理测评页面</div>} />
-                    <Route path="/admin" element={<div>管理中心页面</div>} />
+                    <Route path="/admin" element={<ManageCenter />} />
                     <Route path="/profile" element={<Profile />} />
                     <Route path="/" element={<Navigate to="/home" replace />} />
                     

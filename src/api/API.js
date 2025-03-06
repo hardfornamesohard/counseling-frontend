@@ -56,7 +56,17 @@ export const logout = (sessionId) => {
 };
 
 export const getUserInfo = (sessionId) => {
-  return fetch(`${HOST}//user-info/find?session=${sessionId}`, {
+  return fetch(`${HOST}/user-info/find?session=${sessionId}`, {
+    method: 'GET',
+    headers:{
+      'Session': localStorage.getItem('Session')
+    }
+    
+  });
+};
+
+export const getUsers = (sessionId) => {
+  return fetch(`${HOST}/users?session=${sessionId}`, {
     method: 'GET',
     headers:{
       'Session': localStorage.getItem('Session')
@@ -72,6 +82,6 @@ export const saveUserInfo = (formData, sessionId) => {
     headers:{
       'Session': localStorage.getItem('Session')
     }
-    // 不要手动设置 Content-Type，让浏览器自动处理
+
   });
 };

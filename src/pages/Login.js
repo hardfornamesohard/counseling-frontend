@@ -25,8 +25,10 @@ const Login = () => {
         // 从响应头中获取session并存储
         const session = response.headers.get('Session');
         const nickname = response.headers.get('x-nickname');
+        const role = response.headers.get('x-role');
     
         if (session) {
+          localStorage.setItem('role', role);
           localStorage.setItem('Session', session);
 
           localStorage.setItem('nickname', nickname);
