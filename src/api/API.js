@@ -33,7 +33,7 @@ export const register = async (user) => {
       gmtModified: currentTime
     };
     
-    console.log(payload);
+
   
     const response = await fetch(HOST + "/register", {
       method: "POST",
@@ -58,6 +58,9 @@ export const logout = (sessionId) => {
 export const getUserInfo = (sessionId) => {
   return fetch(`${HOST}//user-info/find?session=${sessionId}`, {
     method: 'GET',
+    headers:{
+      'Session': localStorage.getItem('Session')
+    }
     
   });
 };
@@ -66,6 +69,9 @@ export const saveUserInfo = (formData, sessionId) => {
   return fetch(`${HOST}/user-info/saveOrUpdate?session=${sessionId}`, {
     method: 'POST',
     body: formData,
+    headers:{
+      'Session': localStorage.getItem('Session')
+    }
     // 不要手动设置 Content-Type，让浏览器自动处理
   });
 };
