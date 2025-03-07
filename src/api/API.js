@@ -66,7 +66,7 @@ export const getUserInfo = (sessionId) => {
 };
 
 export const getUsers = (sessionId) => {
-  return fetch(`${HOST}/users?session=${sessionId}`, {
+  return fetch(`${HOST}/admin-api/users?session=${sessionId}`, {
     method: 'GET',
     headers:{
       'Session': localStorage.getItem('Session')
@@ -74,6 +74,45 @@ export const getUsers = (sessionId) => {
     
   });
 };
+
+export const changePassword = async (user) => {
+
+  const payload = {
+      id: user.id,
+      secret: user.password,
+    };
+    console.log(payload);
+    const response = await fetch(HOST + "/admin-api/changePassword", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        'Session': localStorage.getItem('Session')
+      },
+      body: JSON.stringify(payload),  // 请求体
+    });
+  
+    return response;  // 直接返回响应
+  };
+
+  export const changeOther = async (user) => {
+
+    const payload = {
+        id: user.id,
+        nickname: user.nickname,
+        email: user.email
+      };
+      
+      const response = await fetch(HOST + "/admin-api/changeOther", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          'Session': localStorage.getItem('Session')
+        },
+        body: JSON.stringify(payload),  // 请求体
+      });
+    
+      return response;  // 直接返回响应
+    };
 
 export const saveUserInfo = (formData, sessionId) => {
   return fetch(`${HOST}/user-info/saveOrUpdate?session=${sessionId}`, {
