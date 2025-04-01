@@ -30,6 +30,8 @@ const Navbar = () => {
           alt="Logo" 
           className="logo"
         />
+        <span style={{ fontSize: 18, fontWeight: 600, color: '#333' }}>xxx心理咨询系统</span>
+        
       </div>
       <div className="navbar-right">
         <Space size="large">

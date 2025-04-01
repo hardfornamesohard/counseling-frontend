@@ -114,6 +114,36 @@ export const changePassword = async (user) => {
       return response;  // 直接返回响应
     };
 
+    export const getCounselors = () => {
+      return fetch(`${HOST}/user-info/counselors`, {
+        method: 'GET',
+        headers:{
+          'Session': localStorage.getItem('Session')
+        },    
+      });
+    };
+
+    export const bookCounsel = (payload) => {
+      return fetch(`${HOST}/counseling/book`, {
+        method: 'POST',
+        body: JSON.stringify(payload),
+        headers:{
+          'Session': localStorage.getItem('Session'),
+          'Content-Type': 'application/json'
+        },    
+      });
+    };
+
+
+    export const myCounselings = () => {
+      return fetch(`${HOST}/counseling/my-counseling`, {
+        method: 'GET',
+        headers:{
+          'Session': localStorage.getItem('Session')
+        },    
+      });
+    };
+
 export const saveUserInfo = (formData, sessionId) => {
   return fetch(`${HOST}/user-info/saveOrUpdate?session=${sessionId}`, {
     method: 'POST',

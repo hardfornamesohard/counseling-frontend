@@ -26,12 +26,14 @@ const Login = () => {
         const session = response.headers.get('Session');
         const nickname = response.headers.get('x-nickname');
         const role = response.headers.get('x-role');
+        const uid = response.headers.get('x-uid');
     
         if (session) {
           localStorage.setItem('role', role);
           localStorage.setItem('Session', session);
 
           localStorage.setItem('nickname', nickname);
+          localStorage.setItem('uid', uid);
         }
         navigate("/home");
       } else {
