@@ -14,6 +14,7 @@ const Home = () => {
   const [counselorId, setCounselorId] = useState(null);
   const [form] = Form.useForm();
   const[counselingBookData, setCounselingBookData] = useState([]);
+  const[onlines, setOnlines] = useState([]);
 
   useEffect(() => {
     const fetchCounselors = async () => {
@@ -23,6 +24,8 @@ const Home = () => {
           const json = await response.json();
           if (json && json.data) {
             setCounselors(json.data);
+            setOnlines(json.data2);
+
           }
         }
         if(localStorage.getItem('role') === '1') {
@@ -59,7 +62,7 @@ const Home = () => {
     <div>
       {localStorage.getItem('role') === '0' || localStorage.getItem('role') === '2' ? (
         <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
-          {counselors.map((counselor) => (
+          {counselors.map((counselor, index) => (
             <Card
               key={counselor.id}
               style={{ width: 240, margin: 20 }}
@@ -69,7 +72,7 @@ const Home = () => {
                 avatar={<Avatar src={counselor.avatar ? `${AVATAR_BASE_URL}${counselor.avatar}` : undefined} />}
                 title={counselor.name}
                 description={counselor.signature}
-              />
+              />s
               <p>性别：{counselor.gender === 0 ? "男" : counselor.gender === 1 ? "女" : "其他"}</p>
               <p>年龄：{counselor.age}</p>
               <p>爱好：{counselor.hobby}</p>
@@ -77,9 +80,14 @@ const Home = () => {
               <Button type="primary" style={{ marginRight: 10 }} onClick={() => handleBook(counselor.uid)}>
                 预约
               </Button>
-              <Button type="primary">
-                咨询
-              </Button>
+              {onlines[index] ? (
+      <Button type="primary">
+        咨询
+      </Button>
+    ) : (
+      <Button type="primary" disabled>
+        不在线
+      </Button>)}
             </Card>
           ))}
           <Modal
